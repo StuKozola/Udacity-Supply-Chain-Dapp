@@ -6,8 +6,6 @@ This repo contains the solution to the Supply Chain Dapp project deployed to the
   - [Getting Started](#getting-started)
     - [Prerquisites](#prerquisites)
     - [Installing](#installing)
-  - [UML Diagrams](#uml-diagrams)
-    - [Activity Diagram](#activity-diagram)
     - [Sequence Diagram](#sequence-diagram)
     - [State Diagram](#state-diagram)
     - [Class Diagram](#class-diagram)
@@ -97,6 +95,16 @@ truffle test
 All 10 tests should pass.
 
 ![truffle test](images/truffle_test.png)
+
+To deploy the contracts to the Goelib Public Network using Infura, create a `.env` file with the following:
+```
+INFURA_KEY=<YOUR INFURA PROJECT KEY FOR GOERLI>
+MNEMONIC=<YOUR MNEMONIC FROM INFURA>
+```
+Then deploy with Truffle:
+```
+truffle migrate --reset --network goerli
+``
 
 In a separate terminal window, launch the DApp:
 

@@ -6,6 +6,8 @@ This repo contains the solution to the Supply Chain Dapp project deployed to the
   - [Getting Started](#getting-started)
     - [Prerquisites](#prerquisites)
     - [Installing](#installing)
+  - [UML Diagrams](#uml-diagrams)
+    - [Activity Diagram](#activity-diagram)
     - [Sequence Diagram](#sequence-diagram)
     - [State Diagram](#state-diagram)
     - [Class Diagram](#class-diagram)
@@ -104,7 +106,7 @@ MNEMONIC=<YOUR MNEMONIC FROM INFURA>
 Then deploy with Truffle:
 ```
 truffle migrate --reset --network goerli
-``
+```
 
 In a separate terminal window, launch the DApp:
 

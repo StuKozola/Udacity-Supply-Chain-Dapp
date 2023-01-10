@@ -9,7 +9,6 @@
 			"extensions": [
 				"JuanBlanco.solidity",
 				"jebbs.plantuml",
-				"joffreykern.markdown-toc",
 				"yzhang.markdown-all-in-one"
 			]
 		}

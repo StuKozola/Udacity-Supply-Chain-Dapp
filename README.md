@@ -1,55 +1,66 @@
-# Supply chain & data auditing
+# Supply Chain Dapp - Udacity Blockchain Nanodegree Project
+This repo contains the solution to the Supply Chain Dapp project deployed to the Ethereum platform.  The project starter code used is from [here](https://github.com/udacity/nd1309-Project-6b-Example-Template).
 
-This repository containts an Ethereum DApp that demonstrates a Supply Chain flow between a Seller and Buyer. The user story is similar to any commonly used supply chain process. A Seller can add items to the inventory system stored in the blockchain. A Buyer can purchase such items from the inventory system. Additionally a Seller can mark an item as Shipped, and similarly a Buyer can mark an item as Received.
+- [Supply Chain Dapp - Udacity Blockchain Nanodegree Project](#supply-chain-dapp---udacity-blockchain-nanodegree-project)
+  - [Overview](#overview)
+  - [Getting Started](#getting-started)
+    - [Prerquisites](#prerquisites)
+    - [Installing](#installing)
+  - [UML Diagrams](#uml-diagrams)
+    - [Activity Diagram](#activity-diagram)
+    - [Sequence Diagram](#sequence-diagram)
+    - [State Diagram](#state-diagram)
+    - [Class Diagram](#class-diagram)
+  - [Supply chain \& data auditing](#supply-chain--data-auditing)
+  - [6. Built With](#6-built-with)
+  - [7. Authors](#7-authors)
+  - [8. Acknowledgments](#8-acknowledgments)
+  
+## Overview
+The supply chain modeled in this project is for the process of harvesting coffee beans thru delivery to the end consumer.  More details are described in the sections below.
 
-The DApp User Interface when running should look like...
-
-![truffle test](images/ftc_product_overview.png)
-
-![truffle test](images/ftc_farm_details.png)
-
-![truffle test](images/ftc_product_details.png)
-
-![truffle test](images/ftc_transaction_history.png)
-
+The completed and deployed app information:
+| Key | Value |
+|---|---|
+| Goerli Network Contract Address | 0x5F850134D511a482EdEF9Cb2F6b087A6DF1ca66F [link](https://goerli.etherscan.io/address/0x5f850134d511a482edef9cb2f6b087a6df1ca66f)|
+| Truffle | v4.1.14 (core: 4.1.14) |
+| Ganache CLI | v6.12.2 (ganache-core: 2.13.2) |
+| Solidity | v0.4.24 (solc-js) |
+| Node | v16.19.0 |
 
 ## Getting Started
+Instructions in this section will get a copy of this project set up and running on a local machine for development and testing.
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-### Prerequisites
-
-Please make sure you've already installed ganache-cli, Truffle and enabled MetaMask extension in your browser.
-
-```
-Give examples (to be clarified)
-```
+### Prerquisites
+You will need to install node.js with npm and install metamask in your browser.
 
 ### Installing
-
-> The starter code is written for **Solidity v0.4.24**. At the time of writing, the current Truffle v5 comes with Solidity v0.5 that requires function *mutability* and *visibility* to be specified (please refer to Solidity [documentation](https://docs.soliditylang.org/en/v0.5.0/050-breaking-changes.html) for more details). To use this starter code, please run `npm i -g truffle@4.1.14` to install Truffle v4 with Solidity v0.4.24. 
-
-A step by step series of examples that tell you have to get a development env running
-
-Clone this repository:
-
+Clone this repository to a local folder:
 ```
-git clone https://github.com/udacity/nd1309/tree/master/course-5/project-6
+git clone https://github.com/StuKozola/Udacity-Supply-Chain-Dapp
+```
+This code was developed and tested with Truffle v4.1.14 and Solidity v0.4.24. Install Truffle with Solidity:
+```
+npm i -g truffle@4.1.14
+```
+Install Ganache globally:
+```
+npm install ganache --global
 ```
 
-Change directory to ```project-6``` folder and install all requisite npm packages (as listed in ```package.json```):
-
+Change the directory to `project-6` and install all required npm packages listed in package.json:
 ```
 cd project-6
 npm install
 ```
-
 Launch Ganache:
-
 ```
 ganache-cli -m "spirit supply whale amount human item harsh scare congress discover talent hamster"
 ```
-
+or use the shell script
+```
+./1_start_ganache-cli.sh
+```
 Your terminal should look something like this:
 
 ![truffle test](images/ganache-cli.png)
@@ -57,6 +68,7 @@ Your terminal should look something like this:
 In a separate terminal window, Compile smart contracts:
 
 ```
+cd project-6
 truffle compile
 ```
 
@@ -89,36 +101,25 @@ All 10 tests should pass.
 In a separate terminal window, launch the DApp:
 
 ```
+cd project-6
 npm run dev
 ```
+## UML Diagrams
+The design of this project is captured in the following diagrams.
+###  Activity Diagram
+4 actors in a coffee supply chain are:
+* Farmer: The Farmer can harvest coffee beans, process coffee beans, pack coffee palettes, add coffee palettes, ship coffee palettes, and track authenticity.
+* Distributor: The Distributor can buy coffee palettes and track authenticity.
+* Retailer: The Retailer can receive coffee palettes and track authenticity.
+* Consumer: The consumer can buy coffee palettes and track authenticity.
 
-## Built With
-
-* [Ethereum](https://www.ethereum.org/) - Ethereum is a decentralized platform that runs smart contracts
-* [IPFS](https://ipfs.io/) - IPFS is the Distributed Web | A peer-to-peer hypermedia protocol
-to make the web faster, safer, and more open.
-* [Truffle Framework](http://truffleframework.com/) - Truffle is the most popular development framework for Ethereum with a mission to make your life a whole lot easier.
-
-
-## Authors
-
-See also the list of [contributors](https://github.com/your/project/contributors.md) who participated in this project.
-
-## Acknowledgments
-
-* Solidity
-* Ganache-cli
-* Truffle
-* IPFS
-
-## Activity Diagram
 ```plantuml
 @startuml
 |f|Farmer
 start
 :harvest coffee beans;
 note: track authenticity
-:process coffee bans;
+:process coffee beans;
 note: track authenticity
 :pack coffee palettes;
 note: track authenticity
@@ -140,20 +141,35 @@ end
 @enduml
 ```
 
-## Sequence Diagram
+###  Sequence Diagram
+The overall delivery of coffee beans to the end consumer is as follows:
+* The farmer
+  * harvests the coffee beans
+  * processes the coffee beans
+  * packs the coffee beans into palettes
+  * lists the palettes for sale
+* The distibutor
+  * can buy a palette for sale from a farmer to have delievered to a retailer
+  * if the distributor pays the right price, the farmer will ship the item to the reailer
+* The retailer
+  * will let the farmer know the coffee bean palette has been recieved
+* The consumer
+  * can purchase coffee beans from the retailer once the shipment from the farmer has been received
+* All participants can track the state of the supply chain through data stored on the blockchain
+
 ```plantuml
 @startuml
-participant Coffee as b
+participant CoffeeBeans as b
 participant Farmer as f
 participant Distributor as d
 participant Retailer as r
 participant Consumer as c
 activate b
-b -> f: harvestItem()
+b <- f: harvestItem()
 activate f
-b -> f: processItem()
-b -> f: packItem()
-b -> f: selltItem()
+b <- f: processItem()
+b <- f: packItem()
+b <- f: selltItem()
 activate d
 d -> f: buyItem()
 activate r
@@ -167,12 +183,19 @@ deactivate r
 deactivate c
 b->c: fetchItem() buffer one
 b->c: fetchItem() buffer two
-
-
-
 @enduml
 ```
-## State Diagram
+### State Diagram
+The state of the coffee beans through the supply chain go from:
+* Harvested by the farmer
+* Processeed by the farmer
+* Packed by the farmer
+* ForSale by the famer
+* Sold to a distributor
+* Shipped to a retailer
+* Received by a retailer
+* Purchased by a consumer
+  
 ```plantuml
 @startuml
 state Coffee {
@@ -189,12 +212,12 @@ state Coffee {
 
 [*] -right->Farmer: harvestIItem
 Farmer -down-> Harvested: harvestItem
-
-
 @enduml
 ```
 
-## Class Diagram
+### Class Diagram
+The overall design of the contracts are captured in the class diagram below.
+
 ```plantuml
 @startuml
 Role -down-* Farmer
@@ -306,3 +329,41 @@ interface Ownable {
 }
 @enduml
 ```
+
+
+## Supply chain & data auditing
+
+This repository containts an Ethereum DApp that demonstrates a Supply Chain flow between a Seller and Buyer. The user story is similar to any commonly used supply chain process. A Seller can add items to the inventory system stored in the blockchain. A Buyer can purchase such items from the inventory system. Additionally a Seller can mark an item as Shipped, and similarly a Buyer can mark an item as Received.
+
+The DApp User Interface when running should look like...
+
+![truffle test](images/ftc_product_overview.png)
+
+![truffle test](images/ftc_farm_details.png)
+
+![truffle test](images/ftc_product_details.png)
+
+![truffle test](images/ftc_transaction_history.png)
+
+
+
+
+
+##  6. <a name='BuiltWith'></a>Built With
+
+* [Ethereum](https://www.ethereum.org/) - Ethereum is a decentralized platform that runs smart contracts
+* [IPFS](https://ipfs.io/) - IPFS is the Distributed Web | A peer-to-peer hypermedia protocol
+to make the web faster, safer, and more open.
+* [Truffle Framework](http://truffleframework.com/) - Truffle is the most popular development framework for Ethereum with a mission to make your life a whole lot easier.
+
+
+##  7. <a name='Authors'></a>Authors
+
+See also the list of [contributors](https://github.com/your/project/contributors.md) who participated in this project.
+
+##  8. <a name='Acknowledgments'></a>Acknowledgments
+
+* Solidity
+* Ganache-cli
+* Truffle
+* IPFS

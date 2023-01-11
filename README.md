@@ -22,7 +22,7 @@ The supply chain modeled in this project is for the process of harvesting coffee
 The completed and deployed app information:
 | Key | Value |
 |---|---|
-| Goerli Network Contract Address | 0x5F850134D511a482EdEF9Cb2F6b087A6DF1ca66F [link](https://goerli.etherscan.io/address/0x5f850134d511a482edef9cb2f6b087a6df1ca66f)|
+| Goerli Network Contract Address | 0xd401AF0e681B846D20fa71003d68Cc589d1216B9 [link](https://goerli.etherscan.io/address/0xd401AF0e681B846D20fa71003d68Cc589d1216B9)|
 | Truffle | v4.1.14 (core: 4.1.14) |
 | Ganache CLI | v6.12.2 (ganache-core: 2.13.2) |
 | Solidity | v0.4.24 (solc-js) |

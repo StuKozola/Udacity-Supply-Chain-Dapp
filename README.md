@@ -20,7 +20,8 @@ The supply chain modeled in this project is for the process of harvesting coffee
 The completed and deployed app information:
 | Key | Value |
 |---|---|
-| Goerli Network Contract Address | 0xd401AF0e681B846D20fa71003d68Cc589d1216B9 [link](https://goerli.etherscan.io/address/0xd401AF0e681B846D20fa71003d68Cc589d1216B9)|
+| Goerli Network Contract Address | [0xd401AF0e681B846D20fa71003d68Cc589d1216B9](https://goerli.etherscan.io/address/0xd401AF0e681B846D20fa71003d68Cc589d1216B9)|
+| Transaction ID | [0x1eb9b72458efe29e77817a6b8e7e6d4ab62f5ebed4a940682826182c6927e3b6](https://goerli.etherscan.io/tx/0x1eb9b72458efe29e77817a6b8e7e6d4ab62f5ebed4a940682826182c6927e3b6) |
 | Truffle | v5.7.2 (core: 5.7.2) |
 | Ganache |  v7.6.0 |
 | Solidity | v0.5.16 (solc-js) |
@@ -369,7 +370,6 @@ interface Ownable {
 ## Built With
 
 * [Ethereum](https://www.ethereum.org/) - Ethereum is a decentralized platform that runs smart contracts
-* [IPFS](https://ipfs.io/) - IPFS is the Distributed Web | A peer-to-peer hypermedia protocol
 to make the web faster, safer, and more open.
 * [Truffle Framework](http://truffleframework.com/) - Truffle is the most popular development framework for Ethereum with a mission to make your life a whole lot easier.
 
@@ -378,4 +378,3 @@ to make the web faster, safer, and more open.
 * Solidity
 * Ganache-cli
 * Truffle
-* IPFS

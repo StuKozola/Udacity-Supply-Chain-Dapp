@@ -11,10 +11,8 @@ This repo contains the solution to the Supply Chain Dapp project deployed to the
     - [Sequence Diagram](#sequence-diagram)
     - [State Diagram](#state-diagram)
     - [Class Diagram](#class-diagram)
-  - [Supply chain \& data auditing](#supply-chain--data-auditing)
-  - [6. Built With](#6-built-with)
-  - [7. Authors](#7-authors)
-  - [8. Acknowledgments](#8-acknowledgments)
+  - [Built With](#built-with)
+  - [Acknowledgments](#acknowledgments)
   
 ## Overview
 The supply chain modeled in this project is for the process of harvesting coffee beans thru delivery to the end consumer.  More details are described in the sections below.
@@ -114,6 +112,19 @@ In a separate terminal window, launch the DApp:
 cd project-6
 npm run dev
 ```
+
+Open the app by navigating to [localhost:3000](http://localhost:3000/)
+
+The DApp User Interface when running should look like...
+
+![truffle test](images/ftc_product_overview.png)
+
+![truffle test](images/ftc_farm_details.png)
+
+![truffle test](images/ftc_product_details.png)
+
+![truffle test](images/ftc_transaction_history.png)
+
 ## UML Diagrams
 The design of this project is captured in the following diagrams.
 ###  Activity Diagram
@@ -209,19 +220,16 @@ The state of the coffee beans through the supply chain go from:
 ```plantuml
 @startuml
 state Coffee {
-    [*] -right->  Harvested
-    Harvested -right-> Processed
-    Processed -right-> Packed
-    Packed -right-> ForSale
-    ForSale -right-> Sold
-    Sold -right-> Shipped
-    Shipped -right-> Received
-    Received -right-> Purchased
-    Purchased -right-> [*]
+    [*] -down->  Harvested: isFarmer, Harvest
+    Harvested -down-> Processed: isFarmer, isHarvested, Process
+    Processed -down-> Packed: isFarmer, isProcessed, Pack
+    Packed -down-> ForSale: isFarmer, isPacked, Sell
+    ForSale -down-> Sold: isDistributor, isForSale, Buy
+    Sold -down-> Shipped: isFarmer, isSold, Ship
+    Shipped -down-> Received: isRetailer, isShipped, Receive
+    Received -down-> Purchased: isConsumer, isRecieved, Purchase
+    Purchased -down-> [*]
 }
-
-[*] -right->Farmer: harvestIItem
-Farmer -down-> Harvested: harvestItem
 @enduml
 ```
 
@@ -340,38 +348,14 @@ interface Ownable {
 @enduml
 ```
 
-
-## Supply chain & data auditing
-
-This repository containts an Ethereum DApp that demonstrates a Supply Chain flow between a Seller and Buyer. The user story is similar to any commonly used supply chain process. A Seller can add items to the inventory system stored in the blockchain. A Buyer can purchase such items from the inventory system. Additionally a Seller can mark an item as Shipped, and similarly a Buyer can mark an item as Received.
-
-The DApp User Interface when running should look like...
-
-![truffle test](images/ftc_product_overview.png)
-
-![truffle test](images/ftc_farm_details.png)
-
-![truffle test](images/ftc_product_details.png)
-
-![truffle test](images/ftc_transaction_history.png)
-
-
-
-
-
-##  6. <a name='BuiltWith'></a>Built With
+## Built With
 
 * [Ethereum](https://www.ethereum.org/) - Ethereum is a decentralized platform that runs smart contracts
 * [IPFS](https://ipfs.io/) - IPFS is the Distributed Web | A peer-to-peer hypermedia protocol
 to make the web faster, safer, and more open.
 * [Truffle Framework](http://truffleframework.com/) - Truffle is the most popular development framework for Ethereum with a mission to make your life a whole lot easier.
 
-
-##  7. <a name='Authors'></a>Authors
-
-See also the list of [contributors](https://github.com/your/project/contributors.md) who participated in this project.
-
-##  8. <a name='Acknowledgments'></a>Acknowledgments
+##  Acknowledgments
 
 * Solidity
 * Ganache-cli

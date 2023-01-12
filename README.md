@@ -21,13 +21,14 @@ The completed and deployed app information:
 | Key | Value |
 |---|---|
 | Goerli Network Contract Address | 0xd401AF0e681B846D20fa71003d68Cc589d1216B9 [link](https://goerli.etherscan.io/address/0xd401AF0e681B846D20fa71003d68Cc589d1216B9)|
-| Truffle | v4.1.14 (core: 4.1.14) |
-| Ganache CLI | v6.12.2 (ganache-core: 2.13.2) |
-| Solidity | v0.4.24 (solc-js) |
+| Truffle | v5.7.2 (core: 5.7.2) |
+| Ganache |  v7.6.0 |
+| Solidity | v0.5.16 (solc-js) |
 | Node | v16.19.0 |
+| Web3 | v1.8.1 |
 
 ## Getting Started
-Instructions in this section will get a copy of this project set up and running on a local machine for development and testing.
+Instructions in this section will get a copy of this project set up and running on a local machine for development and testing as well as deploy to a the Goerli test network thrugh Infura.
 
 ### Prerquisites
 You will need to install node.js with npm and install metamask in your browser.
@@ -134,6 +135,7 @@ The design of this project is captured in the following diagrams.
 * Retailer: The Retailer can receive coffee palettes and track authenticity.
 * Consumer: The consumer can buy coffee palettes and track authenticity.
 
+<!---
 ```plantuml
 @startuml
 |f|Farmer
@@ -161,6 +163,9 @@ note: track authenticity
 end
 @enduml
 ```
+--->
+
+![activity diagram](/images/activity_diagram.svg)
 
 ###  Sequence Diagram
 The overall delivery of coffee beans to the end consumer is as follows:
@@ -178,6 +183,7 @@ The overall delivery of coffee beans to the end consumer is as follows:
   * can purchase coffee beans from the retailer once the shipment from the farmer has been received
 * All participants can track the state of the supply chain through data stored on the blockchain
 
+<!---
 ```plantuml
 @startuml
 participant CoffeeBeans as b
@@ -206,6 +212,10 @@ b->c: fetchItem() buffer one
 b->c: fetchItem() buffer two
 @enduml
 ```
+-->
+
+![sequence diagram](/images/sequence_diagram.svg)
+
 ### State Diagram
 The state of the coffee beans through the supply chain go from:
 * Harvested by the farmer
@@ -216,7 +226,8 @@ The state of the coffee beans through the supply chain go from:
 * Shipped to a retailer
 * Received by a retailer
 * Purchased by a consumer
-  
+
+<!---  
 ```plantuml
 @startuml
 state Coffee {
@@ -232,10 +243,14 @@ state Coffee {
 }
 @enduml
 ```
+-->
+
+![state diagram](/images/state_diagram.svg)
 
 ### Class Diagram
 The overall design of the contracts are captured in the class diagram below.
 
+<!--
 ```plantuml
 @startuml
 Role -down-* Farmer
@@ -347,6 +362,9 @@ interface Ownable {
 }
 @enduml
 ```
+-->
+
+![class diagram](/images/class_diagram.svg)
 
 ## Built With
 
